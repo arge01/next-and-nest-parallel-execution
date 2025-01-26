@@ -24,7 +24,7 @@ function Header() {
   }, []);
 
   return (
-    <header className="bg-blue-500 dark:bg-gray-800 text-white p-4">
+    <header className="bg-black dark:bg-gray-800 text-white p-4">
       <div className="flex justify-between items-center">
         <h1 className="text-xl font-bold">Flight Reservation</h1>
         <nav className="flex items-center space-x-4">
