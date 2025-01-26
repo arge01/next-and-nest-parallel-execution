@@ -1,0 +1,23 @@
+{
+  "name": "next-and-nest-ts-project-paralel-config",
+  "private": true,
+  "author": "Arif GEVENCI",
+  "version": "1.0.0",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "install": "yarn",
+    "dev": "concurrently \"yarn workspace backend start\" \"yarn workspace frontend dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@nestjs/common": "^11.0.5",
+    "@nestjs/core": "^11.0.5",
+    "next": "^15.1.6"
+  }
+}
