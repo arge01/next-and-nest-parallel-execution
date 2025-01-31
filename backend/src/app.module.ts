@@ -7,7 +7,7 @@ import { FirebaseModule } from './seeder/firebase.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/nest'),
+    MongooseModule.forRoot('mongodb://mongodb:27017/nest'),
     ReservationModule,
     UserModule,
     FirebaseModule,

@@ -52,7 +52,7 @@ export class FirebaseSeeder {
       flightNumber: `FL-${index + 1}`,
       departure: 'City A',
       arrival: 'City B',
-      date: new Date(Date.now() + index * 86400000).toISOString(),
+      date: new Date(Date.now() + index * 86400000),
       guests: Array.from(
         { length: Math.floor(Math.random() * 30) + 1 },
         () => ({

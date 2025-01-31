@@ -17,9 +17,12 @@ export class ReservationService {
     startDate: string,
     endDate: string,
   ): Promise<Reservation[]> {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
     return this.reservationModel
       .find({
-        date: { $gte: startDate, $lte: endDate },
+        date: { $gte: start, $lte: end },
       })
       .exec();
   }

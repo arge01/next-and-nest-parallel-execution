@@ -27,7 +27,6 @@ const LoginPage = ({ auth }: { auth: IAUTH }) => {
         router.push("/dashboard");
       } else {
         await auth.setLogin(false);
-
         setError("Invalid credentials");
       }
     } catch (error: any) {

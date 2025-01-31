@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    volumes:
+      - mongodb-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: nest-backend
+    environment:
+      - MONGO_URI=mongodb://admin:password@mongodb:27017/nest
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+    working_dir: /app
+    command: yarn run start:backend
+    volumes:
+      - .:/app
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: next-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    working_dir: /app
+    command: yarn run start:frontend
+    volumes:
+      - .:/app
+
+volumes:
+  mongodb-data:
+
+networks:
+  app-network:
+    driver: bridge

@@ -13,7 +13,7 @@ export class Reservation extends Document {
   arrival: string;
 
   @Prop({ required: true })
-  date: string;
+  date: Date;
 
   @Prop({ type: [Object], required: true })
   guests: {

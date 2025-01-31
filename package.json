@@ -8,7 +8,13 @@
     "backend"
   ],
   "scripts": {
-    "install": "yarn",
+    "install": "yarn install",
+    "build:backend": "cd ./backend && yarn run build",
+    "build:frontend": "cd ./frontend && yarn run build",
+    "build": "yarn run build:backend && yarn run build:frontend",
+    "start:backend": "cd ./backend && yarn build && yarn run start",
+    "start:frontend": "cd ./frontend && yarn build && yarn start",
+    "start": "concurrently \"yarn run start:backend\" \"yarn run start:frontend\"",
     "dev": "concurrently \"yarn workspace backend start\" \"yarn workspace frontend dev\""
   },
   "devDependencies": {
@@ -18,6 +24,10 @@
   "dependencies": {
     "@nestjs/common": "^11.0.5",
     "@nestjs/core": "^11.0.5",
-    "next": "^15.1.6"
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
   }
 }
