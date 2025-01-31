@@ -25,7 +25,10 @@ yarn run dev
 
 
 Run docker server:
+
 ```bash
+yarn install --ignore-scripts
+
 docker-compose up --build -d
 ```
 

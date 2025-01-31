@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN yarn install --ignore-scripts
+RUN yarn install --production=false --ignore-scripts
 
 COPY ./frontend ./frontend
 
