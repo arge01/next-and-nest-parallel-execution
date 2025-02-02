@@ -2,12 +2,11 @@ FROM node:20
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package.json yarn.lock .
 
-RUN yarn install --production=false --ignore-scripts
+RUN yarn install --ignore-scripts
 
-COPY ./frontend ./frontend
+COPY . .
 
 EXPOSE 3000
-
 CMD ["yarn", "run", "start:frontend"]

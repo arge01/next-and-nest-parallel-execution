@@ -24,10 +24,10 @@ services:
       - mongodb
     networks:
       - app-network
-    working_dir: /app
     command: yarn run start:backend
     volumes:
       - .:/app
+    working_dir: /app
 
   frontend:
     build:
@@ -40,10 +40,10 @@ services:
       - backend
     networks:
       - app-network
-    working_dir: /app
     command: yarn run start:frontend
     volumes:
       - .:/app
+    working_dir: /app
 
 volumes:
   mongodb-data:

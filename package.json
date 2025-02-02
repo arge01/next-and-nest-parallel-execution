@@ -9,11 +9,15 @@
   ],
   "scripts": {
     "install": "yarn install",
-    "build:backend": "cd ./backend && yarn run build",
-    "build:frontend": "cd ./frontend && yarn run build",
+    "install:backend": "cd backend && yarn install --ignore-scripts",
+    "build:backend": "cd backend && yarn run build",
+    "install:frontend": "cd frontend && yarn install --ignore-scripts",
+    "build:frontend": "cd frontend && yarn run build",
     "build": "yarn run build:backend && yarn run build:frontend",
-    "start:backend": "cd ./backend && yarn build && yarn run start",
-    "start:frontend": "cd ./frontend && yarn build && yarn start",
+    "run:backend": "cd backend && nest start",
+    "start:backend": "yarn run install:backend && yarn run build:backend && yarn run run:backend",
+    "run:frontend": "cd frontend && next start",
+    "start:frontend": "yarn run install:frontend && yarn run build:frontend && yarn run run:frontend",
     "start": "concurrently \"yarn run start:backend\" \"yarn run start:frontend\"",
     "dev": "concurrently \"yarn workspace backend start\" \"yarn workspace frontend dev\""
   },
@@ -21,11 +25,7 @@
     "concurrently": "^9.1.2"
   },
   "dependencies": {
-    "next": "15.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "@nestjs/common": "^11.0.1",
-    "@nestjs/core": "^11.0.1"
+    "concurrently": "^9.1.2"
   },
   "license": "MIT"
 }
